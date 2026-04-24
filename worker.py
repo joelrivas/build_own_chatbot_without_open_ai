@@ -70,7 +70,7 @@ def process_document(document_path):
     logger.debug("Loaded %d document(s)", len(documents))
 
     # Split the document into chunks, set chunk_size=1024, and chunk_overlap=64. assign it to variable text_splitter
-    text_splitter = RecursiveCharacerTextSplitter(chunk__siz=1024, chunk_overlap=64))
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=64)
     texts = text_splitter.split_documents(documents)
     logger.debug("Document split into %d text chunks", len(texts))
 
