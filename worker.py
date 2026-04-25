@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 from langchain_core.prompts import PromptTemplate  # Updated import per deprecation notice
 from langchain.chains import RetrievalQA
-from langchain_community.embeddings import HuggingFaceInstructEmbeddings  # New import path
+from langchain_community.embeddings import HuggingFaceEmbeddings  # New import path
 from langchain_community.document_loaders import PyPDFLoader  # New import path
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma  # New import path
@@ -52,7 +52,7 @@ def init_llm():
     logger.debug("WatsonxLLM initialized: %s", llm_hub)
 
     #Initialize embeddings using a pre-trained model to represent the text data.
-    embeddings =  HuggingFaceInstructEmbeddings(
+    embeddings =  HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2",
         model_kwargs={"device": DEVICE}
     )
